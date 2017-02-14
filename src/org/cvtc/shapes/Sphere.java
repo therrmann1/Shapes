@@ -43,9 +43,8 @@ public class Sphere extends Shape {
 		/**
 		 * Validate the radius dimension given from the constructor of the sphere
 		 */
-		if (radius < 0.0) {
-			JOptionPane.showMessageDialog(frame, radius + " is not a valid Radius for a Sphere please enter a positive numeric value.");
-			System.exit(0);
+		if (radius <= 0.0) {
+			throw new IllegalArgumentException();
 		} else {
 			setRadius(radius);
 		}
@@ -60,14 +59,12 @@ public class Sphere extends Shape {
 		float sum = (float) (4 * Math.PI * (getRadius() * getRadius()));
 			
 		/**
-		 * Validate the calculated Surface Area before displaying it to the user, if the sum is not valid display error message and exit the program.
+		 * Validate the calculated Surface Area before displaying it to the user, if the sum is not valid display throw an exception of the ArithmeticException class.
 		 */
 		if (sum > 0) {
 			return sum;
 		} else {
-			JOptionPane.showMessageDialog(frame, sum + " is not a valid Surface Area for a Sphere please enter a positive numeric value in for the Radius value and run the program again.");
-			System.exit(0);
-			return 0;
+			throw new ArithmeticException();
 		}
 	}
 
@@ -81,14 +78,12 @@ public class Sphere extends Shape {
 		
 		
 		/**
-		 * Validate the calculated Volume before displaying it to the user, if the sum is not valid display error message and exit the program.
+		 * Validate the calculated Volume before displaying it to the user, if the sum is not valid throw an exception of the ArithmeticException class.
 		 */
 		if (sum > 0) {
 			return sum;
 		} else {
-			JOptionPane.showMessageDialog(frame, sum + " is not a valid Volume for a Sphere please enter a positive numeric value in for the Radius value and run the program again.");
-			System.exit(0);
-			return 0;
+			throw new ArithmeticException();
 		}
 	}
 

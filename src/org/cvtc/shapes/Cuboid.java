@@ -85,9 +85,8 @@ public class Cuboid extends Shape {
 		/**
 		 * Validate the width dimension given from the constructor of the cuboid
 		 */
-		if (width < 0.0) {
-			JOptionPane.showMessageDialog(frame, width + " is not a valid Width for a Cuboid please enter a positive numeric value.");
-			System.exit(0);
+		if (width <= 0.0) {
+			throw new IllegalArgumentException();
 		} else {
 			setWidth(width);
 		}
@@ -95,9 +94,8 @@ public class Cuboid extends Shape {
 		/**
 		 * Validate the height dimension given from the constructor of the cuboid
 		 */
-		if (height < 0.0) {
-			JOptionPane.showMessageDialog(frame, height + " is not a valid Height for a Cuboid please enter a positive numeric value.");
-			System.exit(0);
+		if (height <= 0.0) {
+			throw new IllegalArgumentException();
 		} else {
 			setHeight(height);
 		}
@@ -105,9 +103,8 @@ public class Cuboid extends Shape {
 		/**
 		 * Validate the depth dimension given from the constructor of the cuboid
 		 */
-		if (depth < 0.0) {
-			JOptionPane.showMessageDialog(frame, depth + " is not a valid Depth for a Cuboid please enter a positive numeric value.");
-			System.exit(0);
+		if (depth <= 0.0) {
+			throw new IllegalArgumentException();
 		} else {
 			setDepth(depth);
 		}
@@ -127,14 +124,12 @@ public class Cuboid extends Shape {
 		float sum = 2 * ((getWidth() * getDepth()) + (getDepth() * getHeight()) + (getHeight() * getWidth()));
 		
 		/*
-		 * Validate the calculated Surface Area before displaying it to the user, if the sum is not valid display error message and exit the program.
+		 * Validate the calculated Surface Area before displaying it to the user, if the sum is not valid throw an exception of the ArithmeticException class.
 		 */
 		if (sum > 0) {
 			return sum;
 		} else {
-			JOptionPane.showMessageDialog(frame, sum + " is not a valid Surface Area for a Cuboid please enter a positive numeric value in for the Height, Width, and Length values and run the program again.");
-			System.exit(0);
-			return 0;
+			throw new ArithmeticException();
 		}
 	}
 
@@ -151,14 +146,12 @@ public class Cuboid extends Shape {
 		float sum = getWidth() * getDepth() * getHeight();
 		
 		/**
-		 * Validate the calculated Volume before displaying it to the user, if the sum is not valid display error message and exit the program.
+		 * Validate the calculated Volume before displaying it to the user, if the sum is not valid throw an exception of the ArithmeticException class.
 		 */
 		if (sum > 0) {
 			return sum;
 		} else {
-			JOptionPane.showMessageDialog(frame, sum + " is not a valid Volume for a Cuboid please enter a positive numeric value in for the Height, Width, and Length values and run the program again.");
-			System.exit(0);
-			return 0;
+			throw new ArithmeticException();
 		}
 	}
 
